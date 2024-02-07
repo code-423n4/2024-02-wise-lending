@@ -59,14 +59,14 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 ---
 
 # Wise Lending audit details
-- Total Prize Pool: $165500 in USDC
-  - HM awards: $118737.5 in USDC
-  - Analysis awards: $6075 in USDC
-  - QA awards: $3037.5 in USDC
-  - Bot Race awards: $9112.5 in USDC
-  - Gas awards: $3037.5 in USDC
-  - Judge awards: $15000 in USDC
-  - Lookout awards: XXX XXX USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
+- Total Prize Pool: $165,500 in USDC
+  - HM awards: $118,737.50 in USDC
+  - Analysis awards: $6,075 in USDC
+  - QA awards: $3,037.50 in USDC
+  - Bot Race awards: $9,112.50 in USDC
+  - Gas awards: $3,037.50 in USDC
+  - Judge awards: $15,000 in USDC
+  - Lookout awards: $10,000 in USDC
   - Scout awards: $500 in USDC
  
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -141,20 +141,23 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 ```
 - If you have a public code repo, please share it here:  
-- How many contracts are in scope?:   
-- Total SLoC for these contracts?:  
+- How many contracts are in scope?: 13  
+- Total SLoC for these contracts?: 6500  
 - How many external imports are there?:  
-- How many separate interfaces and struct definitions are there for the contracts within scope?:  
-- Does most of your code generally use composition or inheritance?:   
-- How many external calls?:   
-- What is the overall line coverage percentage provided by your tests?:
-- Is this an upgrade of an existing system?:
-- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): 
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?:   
-- Please describe required context:   
-- Does it use an oracle?:  
-- Describe any novel or unique curve logic or mathematical models your code uses: 
-- Is this either a fork of or an alternate implementation of another project?:   
+- How many separate interfaces and struct definitions are there for the contracts within scope?: interface 35, structs 10  
+- Does most of your code generally use composition or inheritance?:  Inheritance  
+- How many external calls?: 3
+@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol,
+@pendle/core-v2/contracts/oracles/PendleLpOracleLib.sol, rest is all internal (relative to our contracts folder)
+
+- What is the overall line coverage percentage provided by your tests?: 35
+- Is this an upgrade of an existing system?: False
+- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): Timelock function,  Uses L2,  NFT,  Multi-Chain,  ERC-20 Token, Non ERC-20 Token 
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: True - Curve protocol, Pendle Finance  
+- Please describe required context: Curve protocol, Pendle Finance   
+- Does it use an oracle?:  Chainlink
+- Describe any novel or unique curve logic or mathematical models your code uses: https://github.com/wise-foundation/liquidnfts-audit-scope/blob/master/LASA-Paper.pdf 
+- Is this either a fork of or an alternate implementation of another project?: N/A
 - Does it use a side-chain?:
 - Describe any specific areas you would like addressed:
 ```
