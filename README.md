@@ -59,21 +59,22 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 ---
 
 # Wise Lending audit details
-- Total Prize Pool: $165,500 in USDC
-  - HM awards: $118,737.50 in USDC
-  - Analysis awards: $6,075 in USDC
-  - QA awards: $3,037.50 in USDC
-  - Bot Race awards: $9,112.50 in USDC
-  - Gas awards: $3,037.50 in USDC
+- Total Prize Pool: $140,000 in USDC
+  - HM awards: $94,465 in USDC
+  - Analysis awards: $5,725 in USDC
+  - QA awards: $2,862 in USDC
+  - Bot Race awards: $8,586 in USDC
+  - Gas awards: $2,862 in USDC
   - Judge awards: $15,000 in USDC
   - Lookout awards: $10,000 in USDC
   - Scout awards: $500 in USDC
- 
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2024-02-wise-lending/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts February 19, 2024 20:00 UTC
 - Ends March 6, 2024 20:00 UTC
+
+❗️❗️ **Please note:** if ANY valid High severity issues is found, audit pot increases to $200,000.  The HM pool will increase to $154,565.  All other pools will be capped at the amounts listed above.
 
 ## Automated Findings / Publicly Known Issues
 
