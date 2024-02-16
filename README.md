@@ -71,10 +71,10 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2024-02-wise-lending/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts February 19, 2024 20:00 UTC
-- Ends March 6, 2024 20:00 UTC
+- Starts February 21, 2024 20:00 UTC
+- Ends March 11, 2024 20:00 UTC
 
-❗️❗️ **Please note:** if ANY valid High severity issues is found, audit pot increases to $200,000.  The HM pool will increase to $154,565.  All other pools will be capped at the amounts listed above.
+❗️❗️ **Please note:** if ANY valid High severity issues is found, the Total Prize Pool increases to $200,000 USDC.  The HM award will increase to $154,565.  All other awards will be capped at the amounts listed above.
 
 ## Automated Findings / Publicly Known Issues
 
