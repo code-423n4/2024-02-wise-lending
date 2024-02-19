@@ -250,11 +250,10 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
 
 - There is one master role which will be managed by a timelock contract in the future. This role maintains the system and sets all adjustable parameters. Additionally, there is the extra role of the securityWorker which can perform a security lock. This role can be only be assigned by the master.
 
+- The protocol will be deployed on ETH and Arbitrum. On ETH AaveHub will NOT be used.
 
-- [ ] Please list specific ERC20 that your protocol is anticipated to interact with. Could be "any" (literally anything, fee on transfer tokens, ERC777 tokens and so forth) or a list of tokens you envision using on launch.
-- [ ] Please list specific ERC721 that your protocol is anticipated to interact with.
-- [ ] Which blockchains will this code be deployed to, and are considered in scope for this audit?
-- [ ] Please list all trusted roles (e.g. operators, slashers, pausers, etc.), the privileges they hold, and any conditions under which privilege escalation is expected/allowable
+- ERC20: WETH, WBTC, LINK, DAI, WstETH, sDAI, USDC, USDT, WISE and may others in the future. (Also corresponding Aave tokens if existing)
+
 - [ ] In the event of a DOS, could you outline a minimum duration after which you would consider a finding to be valid? This question is asked in the context of most systems' capacity to handle DoS attacks gracefully for a certain period.
 - [ ] Is any part of your implementation intended to conform to any EIP's? If yes, please list the contracts in this format:
   - `Contract1`: Should comply with `ERC/EIPX`
