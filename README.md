@@ -89,48 +89,30 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
-
 ## Links
 
-- **Previous audits:**
-- **Documentation:**
-- **Website:**
-- **Twitter:**
-- **Discord:**
+- **Previous audits: Hats finance and Omniscia**
+- **Documentation: https://wisesoft.gitbook.io/wise**
+- **Website: https://wisetoken.net/**
+- **Twitter: https://twitter.com/Wise_Token**
+- **Discord: https://discord.gg/TjeqXnTkSk**
 
 # Scope
 
-[ ⭐️ SPONSORS: add scoping and technical details here ]
-
-- [ ] In the table format shown below, provide the name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each *For line of code counts, we recommend running prettier with a 100-character line length, and using [cloc](https://github.com/AlDanial/cloc).*
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-
-*List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
-
-| Contract | SLOC | Purpose | Libraries used |
-| ----------- | ----------- | ----------- | ----------- |
-| [contracts/folder/sample.sol](https://github.com/code-423n4/repo-name/blob/contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
-
-
 ## In Scope:
-
-- Babylonian.sol
-- FeeManager
-- MainHelper.sol
-- OwnableMaster.sol
-- PoolManager.sol
-- PositionNFTs.sol
-- WiseCore.sol
-- WiseLending.sol
-- WiseLendingDeclaration.sol
-- WiseLowLevelHelper.sol
 
 Breakdown by folder:
 
 ```
+|-- FeeManager
+|-- MainHelper.sol
+|-- OwnableMaster.sol
+|-- PoolManager.sol
+|-- PositionNFTs.sol
+|-- WiseCore.sol
+|-- WiseLending.sol
+|-- WiseLendingDeclaration.sol
+|-- WiseLowLevelHelper.sol
 ├── DerivativeOracles
 │   ├── CustomOracleSetup.sol
 │   ├── PendleChildLpOracle.sol
@@ -191,11 +173,13 @@ Breakdown by folder:
 
 - For the PendlePowerFarmToken contract distribution of compounding rewards in the edge case of no interaction in a week in one lump is to be ignored and does not count as a bug.
 
-- One entity could force the current stepping direction by using flash loans and dumping a huge amount into the pool with a transaction triggering the algorithm (after three hours). In the same transaction, the entity could withdraw the amount and finish paying back the flash loan. The entity could repeat this every three hours, manipulating the stepping direction.
-Now, we changed it in a way that the algorithm runs before the user adds or withdraws tokens, which influences the shares. Thus, the attacker needs to put the tokens inside the pool one block before the update block AND needs to be the last transaction in that block to be sure to add the right token amount. Following a flash loan is not possible anymore because the user can't pay back the loan in the same transaction. The tokens need to stay at least one block inside the pool.
-This closes the attack vector, but there may still be a possible scenario. If the attacker has a lot of tokens, they can add the tokens before the update but need to time this (the last person in one block before the update). Then they can withdraw the tokens in the next block and also force the stepping to hold its direction. When the attacker wants to repeat this, they need to keep these tokens fluid every three hours; otherwise, their attack gets automatically reverted in the next update round because they removed the token amount after the last update, resulting in a reduction of shares. So the downsides for the attacker are:
-The user needs to own tokens for the attack. Tokens are needed every three hours to keep up the attack (can't really do something else with them). Depending on the other entities, they need to put even more tokens to keep the attack up (other users can withdraw). The attacker needs to do this for all pools separately! Even when an attacker is doing this, we can set the pool params so that the curve is a static one (like Aave) when we set the _upperBoundMaxRate and _lowerBoundMaxRate rates very close. Or we can just reset them. Even though the attacker can't drain any funds with this attack and loses money over time, the only benefit for this entity is to annoy us.
-In summary, we are aware of this attack, but with all these arguments, we don't see it as a problem. This is because:
+- (Part 1) One entity could force the current stepping direction by using flash loans and dumping a huge amount into the pool with a transaction triggering the algorithm (after three hours). In the same transaction, the entity could withdraw the amount and finish paying back the flash loan. The entity could repeat this every three hours, manipulating the stepping direction.Now, we changed it in a way that the algorithm runs before the user adds or withdraws tokens, which influences the shares. Thus, the attacker needs to put the tokens inside the pool one block before the update block AND needs to be the last transaction in that block to be sure to add the right token amount. Following a flash loan is not possible anymore because the user can't pay back the loan in the same transaction. The tokens need to stay at least one block inside the pool.This closes the attack vector, but there may still be a possible scenario. If the attacker has a lot of tokens, they can add the tokens before the update but need to time this (the last person in one block before the update). Then they can withdraw the tokens in the next block and also force the stepping to hold its direction. When the attacker wants to repeat this, they need to keep these tokens fluid every three hours; otherwise, their attack gets automatically reverted in the next update round because they removed the token amount after the last update, resulting in a reduction of shares. So the downsides for the attacker are:
+    - The user needs to own tokens for the attack. 
+    - Tokens are needed every three hours to keep up the attack (can't really do something else with them). Depending on the other entities, they need to put even more tokens to keep the attack up (other users can     withdraw).
+    - The attacker needs to do this for all pools separately!
+
+- (Part 2) Even when an attacker is doing this, we can set the pool params so that the curve is a static one (like Aave) when we set the _upperBoundMaxRate and _lowerBoundMaxRate rates very close. Or we can just reset them.
+Even though the attacker can't drain any funds with this attack and loses money over time, the only benefit for this entity is to annoy us. In summary, we are aware of this attack, but with all these arguments, we don't see it as a problem. This is because:
   - The attacker can't drain any funds. Loses money to keep it up.
   - Only affects the slope of the utilization curve. The reaction to it is still in the hands of the users.
   - We can reset the curve or even set it constant in a sense that is not affected anymore by the stepping of the pole.
@@ -256,9 +240,17 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
 
 *List any files/contracts that are out of scope for this audit.*
 
+- All files/contracts which are not included in the above breakdown are OOS.
+
 # Additional Context
 
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
+- For general infos one visit our gitbook: https://wisesoft.gitbook.io/wise
+
+- We us a dynamic way to set the borrow rate curve depending on the total lending share amount and its change over time. A theoretical basics are explained in the LASA white paper: https://github.com/wise-foundation/liquidnfts-audit-scope/blob/master/LASA-Paper.pdf
+
+- There is one master role which will be managed by a timelock contract in the future. This role maintains the system and sets all adjustable parameters. Additionally, there is the extra role of the securityWorker which can perform a security lock. This role can be only be assigned by the master.
+
+
 - [ ] Please list specific ERC20 that your protocol is anticipated to interact with. Could be "any" (literally anything, fee on transfer tokens, ERC777 tokens and so forth) or a list of tokens you envision using on launch.
 - [ ] Please list specific ERC721 that your protocol is anticipated to interact with.
 - [ ] Which blockchains will this code be deployed to, and are considered in scope for this audit?
@@ -268,11 +260,6 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
   - `Contract1`: Should comply with `ERC/EIPX`
   - `Contract2`: Should comply with `ERC/EIPY`
 
-## Attack ideas (Where to look for bugs)
-*List specific areas to address - see [this blog post](https://medium.com/code4rena/the-security-council-elections-within-the-arbitrum-dao-a-comprehensive-guide-aa6d001aae60#9adb) for an example*
-
-## Main invariants
-*Describe the project's main invariants (properties that should NEVER EVER be broken).*
 
 ## Scoping Details
 [ ⭐️ SPONSORS: please confirm/edit the information below. ]
@@ -305,7 +292,3 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
 *Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.*
 
 *Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.*
-
-## Miscellaneous
-
-Employees of [SPONSOR NAME] and employees' family members are ineligible to participate in this audit.
