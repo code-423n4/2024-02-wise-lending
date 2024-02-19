@@ -93,8 +93,8 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 - **Previous audits: Hats finance and Omniscia**
 - **Documentation: https://wisesoft.gitbook.io/wise**
-- **Website: https://wisetoken.net/**
-- **Twitter: https://twitter.com/Wise_Token**
+- **Website: https://wiselending.com/**
+- **Twitter: https://twitter.com/Wise_Lending**
 - **Discord: https://discord.gg/TjeqXnTkSk**
 
 # Scope
