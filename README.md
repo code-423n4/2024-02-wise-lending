@@ -2,9 +2,9 @@
 
 This `README.md` contains a set of checklists for our audit collaboration.
 
-Your audit will use two repos: 
+Your audit will use two repos:
 - **an _audit_ repo** (this one), which is used for scoping your audit and for providing information to wardens
-- **a _findings_ repo**, where issues are submitted (shared with you after the audit) 
+- **a _findings_ repo**, where issues are submitted (shared with you after the audit)
 
 Ultimately, when we launch the audit, this repo will be made public and will contain the smart contracts to be reviewed and all the information needed for audit participants. The findings repo will be made public after the audit report is published and your team has mitigated the identified issues.
 
@@ -24,7 +24,7 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 - [ ] Add the information from the scoping form to the "Scoping Details" section at the bottom of this readme.
 - [ ] Add matching info to the Code4rena site
 - [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here. 
+- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here.
 - [ ] Delete this checklist.
 
 # Repo setup
@@ -93,11 +93,11 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 ## Links
 
-- **Previous audits:** 
+- **Previous audits:**
 - **Documentation:**
 - **Website:**
-- **Twitter:** 
-- **Discord:** 
+- **Twitter:**
+- **Discord:**
 
 
 # Scope
@@ -105,13 +105,13 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 [ ⭐️ SPONSORS: add scoping and technical details here ]
 
 - [ ] In the table format shown below, provide the name of each contract and:
-  - [ ] source lines of code (excluding blank lines and comments) in each *For line of code counts, we recommend running prettier with a 100-character line length, and using [cloc](https://github.com/AlDanial/cloc).* 
+  - [ ] source lines of code (excluding blank lines and comments) in each *For line of code counts, we recommend running prettier with a 100-character line length, and using [cloc](https://github.com/AlDanial/cloc).*
   - [ ] external contracts called in each
   - [ ] libraries used in each
 
 *List all files in scope in the table below (along with hyperlinks) -- and feel free to add notes here to emphasize areas of focus.*
 
-| Contract | SLOC | Purpose | Libraries used |  
+| Contract | SLOC | Purpose | Libraries used |
 | ----------- | ----------- | ----------- | ----------- |
 | [contracts/folder/sample.sol](https://github.com/code-423n4/repo-name/blob/contracts/folder/sample.sol) | 123 | This contract does XYZ | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
 
@@ -127,7 +127,7 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 - [ ] Which blockchains will this code be deployed to, and are considered in scope for this audit?
 - [ ] Please list all trusted roles (e.g. operators, slashers, pausers, etc.), the privileges they hold, and any conditions under which privilege escalation is expected/allowable
 - [ ] In the event of a DOS, could you outline a minimum duration after which you would consider a finding to be valid? This question is asked in the context of most systems' capacity to handle DoS attacks gracefully for a certain period.
-- [ ] Is any part of your implementation intended to conform to any EIP's? If yes, please list the contracts in this format: 
+- [ ] Is any part of your implementation intended to conform to any EIP's? If yes, please list the contracts in this format:
   - `Contract1`: Should comply with `ERC/EIPX`
   - `Contract2`: Should comply with `ERC/EIPY`
 
@@ -137,27 +137,27 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 ## Main invariants
 *Describe the project's main invariants (properties that should NEVER EVER be broken).*
 
-## Scoping Details 
+## Scoping Details
 [ ⭐️ SPONSORS: please confirm/edit the information below. ]
 
 ```
-- If you have a public code repo, please share it here:  
-- How many contracts are in scope?: 13  
-- Total SLoC for these contracts?: 6500  
-- How many external imports are there?:  
-- How many separate interfaces and struct definitions are there for the contracts within scope?: interface 35, structs 10  
-- Does most of your code generally use composition or inheritance?:  Inheritance  
+- If you have a public code repo, please share it here:
+- How many contracts are in scope?: 13
+- Total SLoC for these contracts?: 6500
+- How many external imports are there?:
+- How many separate interfaces and struct definitions are there for the contracts within scope?: interface 35, structs 10
+- Does most of your code generally use composition or inheritance?:  Inheritance
 - How many external calls?: 3
 @openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol,
 @pendle/core-v2/contracts/oracles/PendleLpOracleLib.sol, rest is all internal (relative to our contracts folder)
 
 - What is the overall line coverage percentage provided by your tests?: 35
 - Is this an upgrade of an existing system?: False
-- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): Timelock function,  Uses L2,  NFT,  Multi-Chain,  ERC-20 Token, Non ERC-20 Token 
-- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: True - Curve protocol, Pendle Finance  
-- Please describe required context: Curve protocol, Pendle Finance   
+- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): Timelock function,  Uses L2,  NFT,  Multi-Chain,  ERC-20 Token, Non ERC-20 Token
+- Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: True - Curve protocol, Pendle Finance
+- Please describe required context: Curve protocol, Pendle Finance
 - Does it use an oracle?:  Chainlink
-- Describe any novel or unique curve logic or mathematical models your code uses: https://github.com/wise-foundation/liquidnfts-audit-scope/blob/master/LASA-Paper.pdf 
+- Describe any novel or unique curve logic or mathematical models your code uses: https://github.com/wise-foundation/liquidnfts-audit-scope/blob/master/LASA-Paper.pdf
 - Is this either a fork of or an alternate implementation of another project?: N/A
 - Does it use a side-chain?:
 - Describe any specific areas you would like addressed:
@@ -165,9 +165,9 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Tests
 
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.* 
+*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.*
 
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.* 
+*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.*
 
 ## Miscellaneous
 
