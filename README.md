@@ -14,7 +14,7 @@
 - Starts February 21, 2024 20:00 UTC
 - Ends March 11, 2024 20:00 UTC
 
-❗️❗️ **Please note:** if ANY valid High severity issues are found, the Total Prize Pool increases to $200,000 USDC.  The HM award will increase to $154,565.  All other awards will be capped at the amounts listed above.
+❗️❗️ **Please note:** if ANY valid High severity issues are found, the Total Prize Pool increases to &#36;200,000 USDC.  The HM award will increase to &#36;154,565.  All other awards will be capped at the amounts listed above.
 
 ## Automated Findings / Publicly Known Issues
 
