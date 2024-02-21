@@ -30,6 +30,7 @@ error DebtRatioTooHigh();
 error ResultsInBadDebt();
 error TooMuchValueLost();
 error CollateralFactorTooHigh();
+error TooMuchShares();
 error WrongChainId();
 
 contract PendlePowerFarmDeclarations is
@@ -98,6 +99,7 @@ contract PendlePowerFarmDeclarations is
     uint256 internal constant PRECISION_FACTOR_E18 = 1E18;
     uint256 internal constant PRECISION_FACTOR_E16 = 1E16;
     uint256 internal constant MAX_LEVERAGE = 15 * PRECISION_FACTOR_E18;
+    uint256 internal constant FIVTY_PERCENT = 0.5 ether;
 
     uint256 internal constant ETH_CHAIN_ID = 1;
     uint256 internal constant ARB_CHAIN_ID = 42161;

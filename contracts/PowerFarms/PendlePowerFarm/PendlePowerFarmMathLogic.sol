@@ -393,6 +393,18 @@ abstract contract PendlePowerFarmMathLogic is PendlePowerFarmDeclarations {
         view
         returns (bool)
     {
+        uint256 borrowShares = isAave[_nftId]
+            ? _getPositionBorrowSharesAave(
+                _nftId
+            )
+            : _getPositionBorrowShares(
+                _nftId
+        );
+
+        if (borrowShares == 0) {
+            return true;
+        }
+
         return getTotalWeightedCollateralETH(_nftId)
             >= getPositionBorrowETH(_nftId);
     }

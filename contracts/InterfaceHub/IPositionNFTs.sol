@@ -57,6 +57,11 @@ interface IPositionNFTs {
         external
         returns (uint256);
 
+    function getNextExpectedId()
+        external
+        view
+        returns (uint256);
+
     function getApproved(
         uint256 _nftId
     )
