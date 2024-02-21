@@ -1,63 +1,3 @@
-# ✨ So you want to run an audit
-
-This `README.md` contains a set of checklists for our audit collaboration.
-
-Your audit will use two repos:
-- **an _audit_ repo** (this one), which is used for scoping your audit and for providing information to wardens
-- **a _findings_ repo**, where issues are submitted (shared with you after the audit)
-
-Ultimately, when we launch the audit, this repo will be made public and will contain the smart contracts to be reviewed and all the information needed for audit participants. The findings repo will be made public after the audit report is published and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Audit setup
-
-## 🐺 C4: Set up repos
-- [ ] Create a new private repo named `YYYY-MM-sponsorname` using this repo as a template.
-- [ ] Rename this repo to reflect audit date (if applicable)
-- [ ] Rename auditt H1 below
-- [ ] Update pot sizes
-- [ ] Fill in start and end times in audit bullets below
-- [ ] Add link to submission form in audit details below
-- [ ] Add the information from the scoping form to the "Scoping Details" section at the bottom of this readme.
-- [ ] Add matching info to the Code4rena site
-- [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here.
-- [ ] Delete this checklist.
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Provide a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-
----
-
-## ⭐️ Sponsor: Edit this `README.md` file
-
-- [ ] Modify the contents of this `README.md` file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. (Here are two well-constructed examples: [Ajna Protocol](https://github.com/code-423n4/2023-05-ajna) and [Maia DAO Ecosystem](https://github.com/code-423n4/2023-05-maia))
-- [ ] Review the Gas award pool amount. This can be adjusted up or down, based on your preference - just flag it for Code4rena staff so we can update the pool totals across all comms channels.
-- [ ] Optional / nice to have: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] [This checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746) provides some best practices for Code4rena audits.
-
-## ⭐️ Sponsor: Final touches
-- [ ] Review and confirm the details in the section titled "Scoping details" and alert Code4rena staff of any changes.
-- [ ] Review and confirm the list of in-scope files in the `scope.txt` file in this directory.  Any files not listed as "in scope" will be considered out of scope for the purposes of judging, even if the file will be part of the deployed contracts.
-- [ ] Check that images and other files used in this README have been uploaded to the repo as a file and then linked in the README using absolute path (e.g. `https://github.com/code-423n4/yourrepo-url/filepath.png`)
-- [ ] Ensure that *all* links and image/file paths in this README use absolute paths, not relative paths
-- [ ] Check that all README information is in markdown format (HTML does not render on Code4rena.com)
-- [ ] Remove any part of this template that's not relevant to the final version of the README (e.g. instructions in brackets and italic)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # Wise Lending audit details
 - Total Prize Pool: $140,000 in USDC
   - HM awards: $94,465 in USDC
@@ -91,7 +31,7 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 ## Links
 
-- **Previous audits: Hats finance and Omniscia**
+- **Previous audits: https://app.wiselending.com/omni-audit-v1.pdf, https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions
 - **Documentation: https://wisesoft.gitbook.io/wise**
 - **Website: https://wiselending.com/**
 - **Twitter: https://twitter.com/Wise_Lending**
@@ -161,11 +101,7 @@ Breakdown by folder:
     └── Declarations.sol
 ```
 
-## Out of scope:
-
-- Any findings in our previous audit by Omniscia are OOS: https://app.wiselending.com/omni-audit-v1.pdf
-
-- Any submissions and issuse related to Hats finance bug bounty are OOS: https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions
+## Known issues:
 
 - The difference between indexed rewards for the PendlePowerFarmController and actual rewards is to be ignored and does not count as a bug.
 
@@ -233,14 +169,9 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
 
 - Bad debt accrues interest is known and intended.
 
-## Additional Notes:
 - No specific ERC compatibility in mind
+
 - No support for fees on transfer (hello USDT)
-
-
-*List any files/contracts that are out of scope for this audit.*
-
-- All files/contracts which are not included in the above breakdown are OOS.
 
 # Additional Context
 
@@ -252,39 +183,12 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
 
 - The protocol will be deployed on ETH and Arbitrum. On ETH AaveHub will NOT be used.
 
-- ERC20: WETH, WBTC, LINK, DAI, WstETH, sDAI, USDC, USDT, WISE and may others in the future. (Also corresponding Aave tokens if existing)
+- ERC20 in scope: WETH, WBTC, LINK, DAI, WstETH, sDAI, USDC, USDT, WISE and may others in the future. (Also corresponding Aave tokens if existing)
 
-- [ ] In the event of a DOS, could you outline a minimum duration after which you would consider a finding to be valid? This question is asked in the context of most systems' capacity to handle DoS attacks gracefully for a certain period.
-- [ ] Is any part of your implementation intended to conform to any EIP's? If yes, please list the contracts in this format:
-  - `Contract1`: Should comply with `ERC/EIPX`
-  - `Contract2`: Should comply with `ERC/EIPY`
-
-
-## Scoping Details
-[ ⭐️ SPONSORS: please confirm/edit the information below. ]
-
-```
-- If you have a public code repo, please share it here:
-- How many contracts are in scope?: 13
-- Total SLoC for these contracts?: 6500
-- How many external imports are there?:
-- How many separate interfaces and struct definitions are there for the contracts within scope?: interface 35, structs 10
-- Does most of your code generally use composition or inheritance?:  Inheritance
-- How many external calls?: 3
-@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol,
-@pendle/core-v2/contracts/oracles/PendleLpOracleLib.sol, rest is all internal (relative to our contracts folder)
-
-- What is the overall line coverage percentage provided by your tests?: 35
-- Is this an upgrade of an existing system?: False
-- Check all that apply (e.g. timelock, NFT, AMM, ERC20, rollups, etc.): Timelock function,  Uses L2,  NFT,  Multi-Chain,  ERC-20 Token, Non ERC-20 Token
 - Is there a need to understand a separate part of the codebase / get context in order to audit this part of the protocol?: True - Curve protocol, Pendle Finance
-- Please describe required context: Curve protocol, Pendle Finance
-- Does it use an oracle?:  Chainlink
+
 - Describe any novel or unique curve logic or mathematical models your code uses: https://github.com/wise-foundation/liquidnfts-audit-scope/blob/master/LASA-Paper.pdf
-- Is this either a fork of or an alternate implementation of another project?: N/A
-- Does it use a side-chain?:
-- Describe any specific areas you would like addressed:
-```
+
 
 # Tests
 
