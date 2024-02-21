@@ -24,82 +24,69 @@ Automated findings output for the audit can be found [here](https://github.com/c
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
-[ ⭐️ SPONSORS: Are there any known issues or risks deemed acceptable that shouldn't lead to a valid finding? If so, list them here. ]
-
 
 # Overview
 
 ## Links
 
 - **Previous audits: https://app.wiselending.com/omni-audit-v1.pdf, https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions
-- **Documentation: https://wisesoft.gitbook.io/wise**
-- **Website: https://wiselending.com/**
-- **Twitter: https://twitter.com/Wise_Lending**
-- **Discord: https://discord.gg/TjeqXnTkSk**
+- **Documentation: https://wisesoft.gitbook.io/wise
+- **Website: https://wiselending.com/
+- **Twitter: https://twitter.com/Wise_Lending
+- **Discord: https://discord.gg/TjeqXnTkSk
 
-# Scope
+# Scoping details
 
-## In Scope:
+## Files in scope
 
-Breakdown by folder:
+| File                                                        | SLOC |
+|-------------------------------------------------------------|------|
+| ./WiseLending.sol                                           | 511  |
+| ./WiseSecurity/WiseSecurity.sol                             | 428  |
+| ./MainHelper.sol                                            | 401  |
+| ./WiseSecurity/WiseSecurityHelper.sol                       | 347  |
+| ./PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol | 333  |
+| ./FeeManager/FeeManager.sol                                | 304  |
+| ./PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol | 258  |
+| ./WiseOracleHub/OracleHelper.sol                           | 250  |
+| ./PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol | 247  |
+| ./WiseCore.sol                                              | 242  |
+| ./WiseLendingDeclaration.sol                                | 213  |
+| ./WiseOracleHub/WiseOracleHub.sol                           | 180  |
+| ./WrapperHub/AaveHub.sol                                    | 173  |
+| ./WiseLowLevelHelper.sol                                    | 168  |
+| ./PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol | 160  |
+| ./PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol | 145  |
+| ./WrapperHub/AaveHelper.sol                                 | 144  |
+| ./PositionNFTs.sol                                          | 143  |
+| ./WiseSecurity/WiseSecurityDeclarations.sol                | 142  |
+| ./PoolManager.sol                                           | 141  |
+| ./FeeManager/FeeManagerHelper.sol                          | 129  |
+| ./PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol  | 123  |
+| ./FeeManager/DeclarationsFeeManager.sol                    | 117  |
+| ./PowerFarms/PendlePowerFarm/PendlePowerManager.sol        | 103  |
+| ./PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol | 96   |
+| ./PowerFarms/PendlePowerFarm/PendlePowerFarm.sol           | 89   |
+| ./PowerFarms/PowerFarmNFTs/PowerFarmNFTs.sol              | 84   |
+| ./PowerFarms/PowerFarmNFTs/MinterReserver.sol             | 70   |
+| ./DerivativeOracles/PendleLpOracle.sol                    | 66   |
+| ./WiseOracleHub/Declarations.sol                           | 66   |
+| ./DerivativeOracles/PtOracleDerivative.sol                | 62   |
+| ./WrapperHub/Declarations.sol                              | 56   |
+| ./DerivativeOracles/PtOraclePure.sol                      | 54   |
+| ./OwnableMaster.sol                                        | 52   |
+| ./PowerFarms/PendlePowerFarmController/PendlePowerFarmTokenFactory.sol | 49   |
+| ./DerivativeOracles/PendleChildLpOracle.sol               | 42   |
+| ./FeeManager/FeeManagerEvents.sol                          | 39   |
+| ./DerivativeOracles/CustomOracleSetup.sol                 | 29   |
+| ./TransferHub/SendValueHelper.sol                          | 17   |
+| ./TransferHub/WrapperHelper.sol                            | 14   |
+| ./TransferHub/CallOptionalReturn.sol                       | 12   |
+| ./TransferHub/TransferHelper.sol                           | 10   |
+| ./WrapperHub/AaveEvents.sol                                 | 10   |
+| ./TransferHub/ApprovalHelper.sol                            | 7    |
+| **SUM:**                                                    | **6326** |
 
-```
-|-- FeeManager
-|-- MainHelper.sol
-|-- OwnableMaster.sol
-|-- PoolManager.sol
-|-- PositionNFTs.sol
-|-- WiseCore.sol
-|-- WiseLending.sol
-|-- WiseLendingDeclaration.sol
-|-- WiseLowLevelHelper.sol
-├── DerivativeOracles
-│   ├── CustomOracleSetup.sol
-│   ├── PendleChildLpOracle.sol
-│   ├── PendleLpOracle.sol
-│   ├── PtOracleDerivative.sol
-│   └── PtOraclePure.sol
-├── FeeManager
-│   ├── DeclarationsFeeManager.sol
-│   ├── FeeManager.sol
-│   ├── FeeManagerEvents.sol
-│   └── FeeManagerHelper.sol
-├── PowerFarms
-│   ├── PendlePowerFarm
-│   │   ├── PendlePowerFarm.sol
-│   │   ├── PendlePowerFarmDeclarations.sol
-│   │   ├── PendlePowerFarmLeverageLogic.sol
-│   │   ├── PendlePowerFarmMathLogic.sol
-│   │   └── PendlePowerManager.sol
-│   ├── PendlePowerFarmController
-│   │   ├── PendlePowerFarmController.sol
-│   │   ├── PendlePowerFarmControllerBase.sol
-│   │   ├── PendlePowerFarmControllerHelper.sol
-│   │   ├── PendlePowerFarmTokenFactory.sol
-│   │   └── PendlePowerFarmToken.sol
-│   └── PowerFarmNFTs
-│       ├── MinterReserver.sol
-│       └── PowerFarmNFTs.sol
-├── TransferHub
-│   ├── ApprovalHelper.sol
-│   ├── CallOptionalReturn.sol
-│   ├── SendValueHelper.sol
-│   ├── TransferHelper.sol
-│   └── WrapperHelper.sol
-├── WiseOracleHub
-│   ├── Declarations.sol
-│   ├── OracleHelper.sol
-│   └── WiseOracleHub.sol
-├── WiseSecurity
-│   ├── WiseSecurity.sol
-│   ├── WiseSecurityDeclarations.sol
-│   └── WiseSecurityHelper.sol
-└── WrapperHub
-    ├── AaveEvents.sol
-    ├── AaveHelper.sol
-    ├── AaveHub.sol
-    └── Declarations.sol
-```
 
 ## Known issues:
 
@@ -189,9 +176,3 @@ In the future we will remove the reduntand curveSecurityCheck for borrow tokens.
 
 - Describe any novel or unique curve logic or mathematical models your code uses: https://github.com/wise-foundation/liquidnfts-audit-scope/blob/master/LASA-Paper.pdf
 
-
-# Tests
-
-*Provide every step required to build the project from a fresh git clone, as well as steps to run the tests with a gas report.*
-
-*Note: Many wardens run Slither as a first pass for testing.  Please document any known errors with no workaround.*
