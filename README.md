@@ -72,10 +72,10 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 | [PendleLpOracle.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/DerivativeOracles/PendleLpOracle.sol)                    | 66   |
 | [Declarations.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/WiseOracleHub/Declarations.sol)                           | 66   |
 | [PtOracleDerivative.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/DerivativeOracles/PtOracleDerivative.sol)                | 62   |
-| [WrapperHub/Declarations.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/WrapperHub/Declarations.sol)                              | 56   |
+| [Declarations.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/WrapperHub/Declarations.sol)                              | 56   |
 | [PtOraclePure.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/DerivativeOracles/PtOraclePure.sol)                      | 54   |
 | [OwnableMaster.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/OwnableMaster.sol)                     | 52   |
-| [PendlePowerFarmController/PendlePowerFarmTokenFactory.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmTokenFactory.sol) | 49   |
+| [PendlePowerFarmTokenFactory.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmTokenFactory.sol) | 49   |
 | [PendleChildLpOracle.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/DerivativeOracles/PendleChildLpOracle.sol)               | 42   |
 | [FeeManagerEvents.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/FeeManager/FeeManagerEvents.sol) | 39   |
 | [CustomOracleSetup.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/DerivativeOracles/CustomOracleSetup.sol)                | 29   |
