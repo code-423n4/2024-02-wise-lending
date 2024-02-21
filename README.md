@@ -29,11 +29,11 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 ## Links
 
-- **Previous audits: https://app.wiselending.com/omni-audit-v1.pdf, https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions
-- **Documentation: https://wisesoft.gitbook.io/wise
-- **Website: https://wiselending.com/
-- **Twitter: https://twitter.com/Wise_Lending
-- **Discord: https://discord.gg/TjeqXnTkSk
+- **Previous audits:** https://app.wiselending.com/omni-audit-v1.pdf, https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions
+- **Documentation:** https://wisesoft.gitbook.io/wise
+- **Website:** https://wiselending.com/
+- **Twitter:** https://twitter.com/Wise_Lending
+- **Discord:** https://discord.gg/TjeqXnTkSk
 
 # Scoping details
 
