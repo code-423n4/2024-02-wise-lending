@@ -41,7 +41,7 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 | File                                                        | SLOC |
 |-------------------------------------------------------------|------|
-| [WiseLending.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/WiseLending.sol)                         | 511  |
+| [WiseLending.sol](https://github.com/code-423n4/2024-02-wise-lending/blob/main/contracts/WiseLending.sol)                         | 511  |
 | [WiseSecurity.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/WiseSecurity/WiseSecurity.sol) | 428  |
 | [MainHelper.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/MainHelper.sol)                           | 401  |
 | [WiseSecurityHelper.sol](https://github.com/code-423n4/2024-02-wise-lending/contracts/WiseSecurity/WiseSecurityHelper.sol) | 347  |
