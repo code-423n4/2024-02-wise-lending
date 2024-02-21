@@ -61,6 +61,18 @@ abstract contract PendlePowerFarm is PendlePowerFarmLeverageLogic {
         view
         returns (uint256)
     {
+        uint256 borrowShares = isAave[_nftId]
+            ? _getPositionBorrowSharesAave(
+                _nftId
+            )
+            : _getPositionBorrowShares(
+                _nftId
+            );
+
+        if (borrowShares == 0) {
+            return 0;
+        }
+
         uint256 totalCollateral = getTotalWeightedCollateralETH(
             _nftId
         );

@@ -269,6 +269,10 @@ abstract contract MainHelper is WiseLowLevelHelper {
         if (_nftIdLiquidator == _nftId) {
             revert InvalidLiquidator();
         }
+
+        if (_nftIdLiquidator >= POSITION_NFT.getNextExpectedId()) {
+            revert InvalidLiquidator();
+        }
     }
 
     function _getBalance(

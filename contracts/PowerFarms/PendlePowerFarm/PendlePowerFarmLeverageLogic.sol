@@ -581,6 +581,18 @@ abstract contract PendlePowerFarmLeverageLogic is
             _shareAmountToPay
         );
 
+        uint256 cutoffShares = isAave[_nftId] == true
+            ? _getPositionBorrowSharesAave(_nftId)
+                * FIVTY_PERCENT
+                / PRECISION_FACTOR_E18
+            : _getPositionBorrowShares(_nftId)
+                * FIVTY_PERCENT
+                / PRECISION_FACTOR_E18;
+
+        if (_shareAmountToPay > cutoffShares) {
+            revert TooMuchShares();
+        }
+
         receivingAmount = WISE_LENDING.coreLiquidationIsolationPools(
             _nftId,
             _nftIdLiquidator,

@@ -6,7 +6,7 @@ test = "Tests"
 cache_path = "forge-cache"
 solc = "0.8.24"
 optimizer = true
-optimizer_runs = 200
+optimizer_runs = 20
 evm_version ="shanghai"
 [invariant]
 fail_on_revert = false
